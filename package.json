@@ -1,40 +1,41 @@
 {
-    "name" : "rhyme-plus",
-    "description" : "A rhyming dictionary",
-    "version" : "0.0.6",
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/mapmeld/node-rhyme.git"
-    },
-    "main" : "./index.js",
-    "keywords" : [
-        "rhyme",
-        "meter",
-        "poem",
-        "poetry",
-        "song",
-        "phonemes",
-        "dictionary",
-        "syllables",
-        "pronounce",
-        "pronunciation",
-	"alliteration"
-    ],
-    "scripts" : {
-        "test" : "expresso"
-    },
-    "engines" : {
-        "node" : ">=0.4.0"
-    },
-    "dependencies" : {
-        "hashish" : ">=0.0.2",
-        "lazy" : ">=1.0.4"
-    },
-    "devDependencies" : {},
-    "license" : "MIT/X11",
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    }
+  "name": "rhyme-plus",
+  "description": "A rhyming dictionary",
+  "version": "0.0.6",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mapmeld/node-rhyme.git"
+  },
+  "main": "./index.js",
+  "keywords": [
+    "rhyme",
+    "meter",
+    "poem",
+    "poetry",
+    "song",
+    "phonemes",
+    "dictionary",
+    "syllables",
+    "pronounce",
+    "pronunciation",
+    "alliteration"
+  ],
+  "scripts": {
+    "test": "expresso"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "hashish": ">=0.0.4",
+    "lazy": ">=1.0.11",
+    "lodash": "^3.9.3"
+  },
+  "devDependencies": {},
+  "license": "MIT/X11",
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  }
 }
