@@ -1,10 +1,10 @@
 {
   "name": "rhyme-plus",
   "description": "A rhyming dictionary",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mapmeld/node-rhyme.git"
+    "url": "git://github.com/beaugunderson/node-rhyme.git"
   },
   "main": "./index.js",
   "keywords": [
@@ -21,15 +21,11 @@
     "alliteration"
   ],
   "scripts": {
-    "test": "expresso"
-  },
-  "engines": {
-    "node": ">=0.4.0"
+    "test": "mocha -R spec"
   },
   "dependencies": {
-    "hashish": ">=0.0.4",
     "lazy": ">=1.0.11",
-    "lodash": "^3.9.3"
+    "lodash": "^3.10.0"
   },
   "devDependencies": {},
   "license": "MIT/X11",
