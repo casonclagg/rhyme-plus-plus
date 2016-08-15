@@ -5,7 +5,7 @@ var Lazy = require('lazy');
 var path = require('path');
 var _ = require('lodash');
 
-var dictFile = path.join(__dirname, '/data/cmudict.dict');
+var dictFile = path.join(__dirname, 'data/cmudict.dict');
 
 var RE_CONSONANT = /^[^AEIOU]/i;
 var RE_VOWEL = /^[AEIOU]/i;
@@ -37,7 +37,7 @@ var active = exports.active = function (ws) {
 };
 
 var Rhyme = exports.Rhyme = function rhyme() {
-  this.dict = {};
+  this.dict = new Map();
 };
 
 Rhyme.prototype.load = function (cb, dictFileDirect) {
@@ -53,19 +53,19 @@ Rhyme.prototype.load = function (cb, dictFileDirect) {
   new Lazy(stream).lines.map(String).forEach(function (line) {
     if (line.match(/^[A-Z]/i)) {
       var words = line.split(/\s+/);
-      var word = words[0].replace(/\(\d+\)$/, '');
+      var word = words[0].replace(/\(\d+\)$/, '').toUpperCase();
 
-      if (!self.dict[word]) {
-        self.dict[word] = [];
+      if (!self.dict.has(word)) {
+        self.dict.set(word, []);
       }
 
-      self.dict[word].push(words.slice(1));
+      self.dict.get(word).push(words.slice(1));
     }
   });
 };
 
 Rhyme.prototype.pronounce = function (word) {
-  return this.dict[word.toUpperCase()];
+  return this.dict.get(word.toUpperCase());
 };
 
 Rhyme.prototype.syllables = function (word) {
@@ -79,16 +79,16 @@ Rhyme.prototype.syllables = function (word) {
 Rhyme.prototype.rhyme = function (word) {
   word = word.toUpperCase();
 
-  if (!this.dict[word]) {
+  if (!this.dict.has(word)) {
     return [];
   }
 
-  var mapped = this.dict[word].map(active);
+  var mapped = this.dict.get(word).map(active);
   var rhymes = [];
 
-  _.each(this.dict, function (pronounciations, w) {
+  for (let [w, pronounciations] of this.dict.entries()) {
     if (w === word) {
-      return;
+      continue;
     }
 
     var some = pronounciations.some(function (p) {
@@ -98,7 +98,7 @@ Rhyme.prototype.rhyme = function (word) {
     if (some) {
       rhymes.push(w);
     }
-  });
+  }
 
   return rhymes;
 };
@@ -111,8 +111,8 @@ function removeNumbers(pronounciation) {
 }
 
 Rhyme.prototype.applyRhymeFn = function (fn, word1, word2) {
-  var pronounciations1 = this.dict[word1.toUpperCase()];
-  var pronounciations2 = this.dict[word2.toUpperCase()];
+  var pronounciations1 = this.dict.get(word1.toUpperCase());
+  var pronounciations2 = this.dict.get(word2.toUpperCase());
 
   // reject if rhymes not possible
   if (!pronounciations1 || !pronounciations2 ||
@@ -158,7 +158,7 @@ Rhyme.prototype.findRhymes = function (words) {
 Rhyme.prototype.alliteration = function (word) {
   word = word.toUpperCase();
 
-  if (!this.dict[word]) {
+  if (!this.dict.has(word)) {
     return [];
   }
 
@@ -175,12 +175,12 @@ Rhyme.prototype.alliteration = function (word) {
     return ws.join(' ');
   }
 
-  var mapped = this.dict[word].map(firstSlice);
+  var mapped = this.dict.get(word).map(firstSlice);
   var rhymes = [];
 
-  _.each(this.dict, function (pronounciations, w) {
+  for (let [w, pronounciations] of this.dict.entries()) {
     if (w === word) {
-      return;
+      continue;
     }
 
     var some = pronounciations.some(function (p) {
@@ -190,7 +190,7 @@ Rhyme.prototype.alliteration = function (word) {
     if (some) {
       rhymes.push(w);
     }
-  });
+  }
 
   return rhymes;
 };
