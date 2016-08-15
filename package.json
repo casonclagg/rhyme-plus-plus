@@ -1,7 +1,7 @@
 {
   "name": "rhyme-plus-plus",
   "description": "A rhyming dictionary (based on substack's rhyme module)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/beaugunderson/rhyme-plus-plus.git"
