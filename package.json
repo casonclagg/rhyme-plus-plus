@@ -1,10 +1,10 @@
 {
-  "name": "rhyme-plus",
-  "description": "A rhyming dictionary",
+  "name": "rhyme-plus-plus",
+  "description": "A rhyming dictionary (based on substack's rhyme module)",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/beaugunderson/node-rhyme.git"
+    "url": "git://github.com/beaugunderson/rhyme-plus-plus.git"
   },
   "main": "./index.js",
   "keywords": [
@@ -25,13 +25,11 @@
   },
   "dependencies": {
     "lazy": ">=1.0.11",
-    "lodash": "^3.10.0"
+    "lodash": "^4.15.0"
   },
-  "devDependencies": {},
-  "license": "MIT/X11",
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  }
+  "license": "MIT",
+  "author": "Beau Gunderson <beau@beaugunderson.com>",
+  "contributors": [
+    "James Halliday <mail@substack.net>"
+  ]
 }

@@ -5,7 +5,7 @@ var Lazy = require('lazy');
 var path = require('path');
 var _ = require('lodash');
 
-var dictFile = path.join(__dirname, '/data/cmudict.0.7a');
+var dictFile = path.join(__dirname, '/data/cmudict.dict');
 
 var RE_CONSONANT = /^[^AEIOU]/i;
 var RE_VOWEL = /^[AEIOU]/i;
