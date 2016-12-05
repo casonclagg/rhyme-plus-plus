@@ -76,6 +76,10 @@ Rhyme.prototype.syllables = function (word) {
   }).length;
 };
 
+Rhyme.prototype.rhymeEnd = function (word) {
+    // TODO - ending rhymes
+};
+
 Rhyme.prototype.rhyme = function (word) {
   word = word.toUpperCase();
 

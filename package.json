@@ -1,10 +1,10 @@
 {
-  "name": "rhyme-plus-plus",
+  "name": "rhyme-plus-plus-plus",
   "description": "A rhyming dictionary (based on substack's rhyme module)",
   "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/beaugunderson/rhyme-plus-plus.git"
+    "url": "git://github.com/casonclagg/rhyme-plus-plus.git"
   },
   "main": "./index.js",
   "keywords": [
@@ -28,8 +28,9 @@
     "lodash": "^4.15.0"
   },
   "license": "MIT",
-  "author": "Beau Gunderson <beau@beaugunderson.com>",
+  "author": "Cason Clagg"
   "contributors": [
-    "James Halliday <mail@substack.net>"
+    "James Halliday <mail@substack.net>",
+    "Beau Gunderson <beau@beaugunderson.com>"
   ]
 }
