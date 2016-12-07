@@ -28,7 +28,7 @@
     "lodash": "^4.15.0"
   },
   "license": "MIT",
-  "author": "Cason Clagg"
+  "author": "Cason Clagg",
   "contributors": [
     "James Halliday <mail@substack.net>",
     "Beau Gunderson <beau@beaugunderson.com>"
